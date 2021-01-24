@@ -20,7 +20,7 @@
 #define SERIAL_UART3
 //#define SERIAL_UART4
 //#define SERIAL_UART5
-//#define SERIAL_UART6
+#define SERIAL_UART6
 //#define SERIAL_UART7
 //#define SERIAL_UART8
 

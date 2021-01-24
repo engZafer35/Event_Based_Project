@@ -10,9 +10,9 @@
 *******************************************************************************/
 #define SHOW_PAGE_DBG_MSG  (DISABLE)
 /********************************* INCLUDES ***********************************/
-#include "ProjectConf.h"
-#include "string.h"
+#include <string.h>
 
+#include "ProjectConf.h"
 #include "MiddSerialComm.h"
 #include "MiddSysTimer.h"
 

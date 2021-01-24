@@ -21,7 +21,7 @@
 #ifdef __linux
     #define CURRENT_BOARD   (BOARD_LINUX_PC)
 #else
-    #define CURRENT_BOARD   (BOARD_STM_LP_010101)
+    #define CURRENT_BOARD   (BOARD_STM_010101)
 #endif
 
 #if (CURRENT_BOARD == BOARD_STM_010101)
