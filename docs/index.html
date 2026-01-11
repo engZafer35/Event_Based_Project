@@ -3,167 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zafer | Senior Embedded Systems Architect</title>
+    <title>EBP | Event-Based Project </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0a192f;
-            --secondary: #64ffda;
-            --text-main: #ccd6f6;
-            --text-dim: #8892b0;
-            --bg: #0a192f;
+            --bg: #0b0e14;
+            --card-bg: #161b22;
+            --primary-red: #ff4d4d;
+            --secondary-teal: #64ffda;
+            --text-main: #e6f1ff;
+            --text-dim: #8b949e;
+            --border: #30363d;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             margin: 0;
             line-height: 1.6;
         }
 
+        /* Hero Section */
         header {
-            height: 100vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            background: radial-gradient(circle at top right, #1a1f2e 0%, #0b0e14 100%);
+            border-bottom: 1px solid var(--border);
             padding: 0 20px;
-            background: radial-gradient(circle at center, #112240 0%, #0a192f 100%);
         }
 
-        .tagline { color: var(--secondary); font-family: monospace; font-size: 1.2rem; margin-bottom: 10px; }
-        h1 { font-size: 4rem; margin: 0; color: #e6f1ff; }
-        h2 { font-size: 1.5rem; color: var(--text-dim); font-weight: 400; max-width: 600px; }
+        .red-title { color: var(--primary-red); font-weight: bold; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 10px 0; color: #fff; }
+        .hero-desc { color: var(--text-dim); max-width: 700px; font-size: 1.2rem; }
 
-        .container { max-width: 1000px; margin: auto; padding: 80px 20px; }
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: #ccd6f6;
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 80px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+        /* Feature Cards */
+        .card { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 12px; height: 100%; }
+        .icon-box { color: var(--secondary-teal); font-size: 2rem; margin-bottom: 20px; }
+
+        /* Status Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #0d1117; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { color: var(--secondary-teal); font-family: monospace; }
+
+        /* Hardware Diamond List */
+        .hw-list { list-style: none; padding: 0; }
+        .hw-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .hw-list li::before { content: "◆"; color: var(--primary-red); margin-right: 15px; font-size: 1.2rem; }
+
+        /* Platform Badges */
+        .badge { background: rgba(100, 255, 218, 0.1); color: var(--secondary-teal); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-right: 10px; border: 1px solid var(--secondary-teal); }
+
+        .btn {
+            display: inline-block; padding: 12px 28px; border: 1px solid var(--primary-red); color: var(--primary-red);
+            text-decoration: none; border-radius: 6px; transition: 0.3s; margin-top: 20px; font-weight: 600;
         }
-
-        .section-title::after {
-            content: ""; display: block; width: 300px; height: 1px;
-            background: var(--text-dim); margin-left: 20px; opacity: 0.3;
-        }
-
-        .project-card {
-            background: #112240;
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid transparent;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary);
-        }
-
-        .tech-stack span {
-            display: inline-block;
-            background: rgba(100, 255, 218, 0.1);
-            color: var(--secondary);
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-right: 8px;
-            margin-top: 10px;
-            font-family: monospace;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .stat-item h3 { font-size: 2.5rem; margin: 0; color: var(--secondary); }
-        .stat-item p { margin: 5px 0; font-size: 0.9rem; }
-
-        .contact-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-            cursor: pointer;
-            font-weight: 500;
-        }
-
-        .contact-btn:hover { background: rgba(100, 255, 218, 0.1); }
+        .btn:hover { background: rgba(255, 77, 77, 0.1); transform: translateY(-2px); }
         
-        .contact-btn i {
-            margin-left: 10px;
-            font-size: 0.9rem;
-        }
+        img { width: 100%; border-radius: 10px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="tagline">Hi, my name is</div>
-        <h1>Zafer.</h1>
-        <h2>I build scalable, hardware-agnostic embedded systems.</h2>
-        <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/engZafer35/Event_Based_Project/master/Documents/Ba%C5%9Ftan%20Sona%20G%C3%B6m%C3%BCl%C3%BC%20Yaz%C4%B1l%C4%B1m%20Projesi%20Yap%C4%B1m%C4%B1.pdf&embedded=true" 
-           target="_blank" 
-           class="contact-btn">
-           View My Latest Project <i class="fas fa-external-link-alt"></i>
-        </a>
+        <div class="red-title"># Event Based Project</div>
+        <h1>Multi-Platform Framework</h1>
+        <p class="hero-desc">A high-performance embedded architecture designed to decouple business logic from hardware using an advanced Event-Driven approach.</p>
+        <div style="margin-top: 20px;">
+            <span class="badge">Linux / Ubuntu</span>
+            <span class="badge">STM32F407</span>
+            <span class="badge">STM32L476</span>
+        </div>
+        <a href="https://github.com/engZafer35/Event_Based_Project" class="btn">View Source on GitHub <i class="fab fa-github"></i></a>
     </header>
 
     <div class="container">
-        <div id="project" class="section-title">Featured Project</div>
         
-        <div class="project-card">
-            <h3 style="color: var(--secondary); margin-top: 0;"> Next-Gen Framework</h3>
-            <p>A high-performance Software-In-the-Loop (SIL) simulation platform designed to decouple firmware from hardware. Enables 100x accelerated regression testing and AI-driven validation.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>100x</h3>
-                    <p>Test Acceleration</p>
-                </div>
-                <div class="stat-item">
-                    <h3>90%</h3>
-                    <p>Hardware Independence</p>
-                </div>
-                <div class="stat-item">
-                    <h3>Zero</h3>
-                    <p>Mock-related Latency</p>
-                </div>
+        <div class="grid">
+            <div>
+                <div class="icon-box"><i class="fas fa-microchip"></i></div>
+                <h2 style="color: var(--secondary-teal);">Event-Driven Architecture</h2>
+                <p>The core of EBP relies on a non-blocking <b>Event Loop</b>. By abstracting hardware interrupts into a centralized event queue, the system achieves maximum stability and scalability.</p>
+                <ul class="hw-list">
+                    <li><b>Producer Isolation:</b> Add sensors by simply calling <code>EventAdd()</code>.</li>
+                    <li><b>Consumer Logic:</b> Centralized event processing prevents spaghetti code.</li>
+                    <li><b>HAL Layer:</b> Run the same code on a Linux simulator or bare-metal MCU.</li>
+                </ul>
             </div>
-
-            <div class="tech-stack">
-                <span>Modern C++</span>
-                <span>Python/PyQt5</span>
-                <span>Embedded Linux</span>
-                <span>FreeRTOS</span>
-                <span>CI/CD (GitHub Actions)</span>
-                <span>GoogleTest</span>
+            <div>
+                <img src="https://github.com/user-attachments/assets/ea60a43f-ac03-4445-b026-b2d4adaf06e5" alt="Software Architecture">
             </div>
         </div>
 
-        <div style="margin-top: 100px;" class="section-title">Core Expertise</div>
-        <p style="color: var(--text-dim)">
-            Linux Kernel & Device Drivers | Yocto Project | i.MX Series | Real-Time Networking (UDP/TCP) | Audio DSP | ALSA
-        </p>
+        <div class="grid" style="direction: rtl; text-align: left;">
+            <div style="direction: ltr;">
+                <div class="icon-box"><i class="fas fa-server"></i></div>
+                <h2 style="color: var(--secondary-teal);">Hardware Capabilities</h2>
+                <ul class="hw-list">
+                    <li><b>Comm:</b> Dual UART, CANBus, and I2C integration.</li>
+                    <li><b>Expansion:</b> TCA9555 GPIO & TCA8418 Keypad support.</li>
+                    <li><b>Environmental:</b> Precise LM75B Temperature tracking.</li>
+                    <li><b>Power:</b> Industrial 9-36V input regulation.</li>
+                </ul>
+            </div>
+            <div style="direction: ltr;">
+                <img src="path_to_your_hardware_image.png" alt="Hardware Units">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="text-align: center; color: var(--primary-red);">Software Core Modules</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Functionality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>BIT (Built-In Test)</b></td>
+                        <td>System health monitoring & Watchdog management.</td>
+                    </tr>
+                    <tr>
+                        <td><b>CommCan Manager</b></td>
+                        <td>CANBus protocol parsing and packet handling.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Working Mode</b></td>
+                        <td>Maintenance, Update, and Error state machine.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Logger</b></td>
+                        <td>Real-time field diagnostics and debug logging.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 80px; text-align: center;">
+            <h2>Ready to Deploy</h2>
+            <p style="color: var(--text-dim);">Open project files in <b>Eclipse</b> or <b>STM32CubeIDE</b> and click the build hammer.</p>
+            <div class="grid" style="text-align: left; margin-top: 40px;">
+                <div class="card">
+                    <h3><i class="fab fa-linux"></i> Linux Environment</h3>
+                    <p>Perfect for SIL (Software-In-the-Loop) simulations and logic testing using GCC.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-bolt"></i> STM32 Targets</h3>
+                    <p>Optimized for ARM Cortex-M4 with full peripheral support and low-power modes.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid var(--border);">
+        EBP Framework © 2024 | Designed for High-Reliability Systems
+    </footer>
 
 </body>
 </html>
