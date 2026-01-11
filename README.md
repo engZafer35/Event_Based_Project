@@ -1,3 +1,5 @@
+<img width="537" height="758" alt="image" src="https://github.com/user-attachments/assets/ea60a43f-ac03-4445-b026-b2d4adaf06e5" />
+
 EBP (Event Based Project) - Multi-Platform Embedded Framework
 EBP is a high-performance, modular embedded framework designed with a Hardware Abstraction Layer (HAL). It allows the same application logic to run seamlessly across diverse environments, from high-level Linux systems to bare-metal microcontrollers like the STM32 series.
 
@@ -77,5 +79,6 @@ The project is structured to be easily built across different IDEs and environme
 <br>
 
 ◆ **Multi-Platform Ready:** The build system is pre-configured to handle the Hardware Abstraction Layer (HAL) automatically based on the selected project environment.
+
 
 
