@@ -80,7 +80,9 @@ The project is structured to be easily built across different IDEs and environme
 
 ◆ **Multi-Platform Ready:** The build system is pre-configured to handle the Hardware Abstraction Layer (HAL) automatically based on the selected project environment.
 
-<img width="537" height="758" alt="image" src="https://github.com/user-attachments/assets/ea60a43f-ac03-4445-b026-b2d4adaf06e5" />
+<img width="503" height="710" alt="image" src="https://github.com/user-attachments/assets/54018ddc-bd20-4b44-8aca-6046bf76adc7" />
+
+
 
 
 
