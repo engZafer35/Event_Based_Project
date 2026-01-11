@@ -1,315 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBP | Event-Based Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --card-bg: #161b22;
+            --primary-red: #ff4d4d;
+            --secondary-teal: #64ffda;
+            --text-main: #e6f1ff;
+            --text-dim: #8b949e;
+            --border: #30363d;
+        }
 
-<title>EBP – Event Based Project Framework</title>
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
 
-<style>
-:root {
-    --bg: #0a192f;
-    --bg-light: #112240;
-    --primary: #64ffda;
-    --text-main: #ccd6f6;
-    --text-dim: #8892b0;
-    --border: rgba(100,255,218,0.2);
-}
+        /* Hero Section */
+        header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top right, #1a1f2e 0%, #0b0e14 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        .red-title { color: var(--primary-red); font-weight: bold; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 10px 0; color: #fff; }
+        .hero-desc { color: var(--text-dim); max-width: 700px; font-size: 1.2rem; }
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text-main);
-    line-height: 1.7;
-}
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
 
-/* ---------- Layout ---------- */
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 80px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
 
-header {
-    min-height: 100vh;
-    padding: 80px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at top, #112240 0%, #0a192f 60%);
-}
+        /* Feature Cards */
+        .card { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 12px; height: 100%; }
+        .icon-box { color: var(--secondary-teal); font-size: 2rem; margin-bottom: 20px; }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 80px 20px;
-}
+        /* Status Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #0d1117; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { color: var(--secondary-teal); font-family: monospace; }
 
-section {
-    margin-bottom: 120px;
-}
+        /* Hardware Diamond List */
+        .hw-list { list-style: none; padding: 0; }
+        .hw-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .hw-list li::before { content: "◆"; color: var(--primary-red); margin-right: 15px; font-size: 1.2rem; }
 
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
+        /* Platform Badges */
+        .badge { background: rgba(100, 255, 218, 0.1); color: var(--secondary-teal); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-right: 10px; border: 1px solid var(--secondary-teal); }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-}
-
-h2::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    margin-left: 20px;
-    background: var(--border);
-}
-
-h3 {
-    color: var(--primary);
-    margin-top: 40px;
-}
-
-p {
-    color: var(--text-dim);
-    max-width: 900px;
-}
-
-/* ---------- Hero ---------- */
-
-.hero span {
-    color: var(--primary);
-    font-family: monospace;
-    font-size: 1.1rem;
-}
-
-.hero p {
-    font-size: 1.1rem;
-}
-
-/* ---------- Cards ---------- */
-
-.card {
-    background: var(--bg-light);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 30px;
-    margin-top: 30px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-/* ---------- Tables ---------- */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-}
-
-th, td {
-    padding: 14px;
-    border-bottom: 1px solid var(--border);
-}
-
-th {
-    color: var(--primary);
-    text-align: left;
-    font-weight: 500;
-}
-
-/* ---------- Footer ---------- */
-
-footer {
-    padding: 40px 20px;
-    text-align: center;
-    color: var(--text-dim);
-    border-top: 1px solid var(--border);
-}
-</style>
+        .btn {
+            display: inline-block; padding: 12px 28px; border: 1px solid var(--primary-red); color: var(--primary-red);
+            text-decoration: none; border-radius: 6px; transition: 0.3s; margin-top: 20px; font-weight: 600;
+        }
+        .btn:hover { background: rgba(255, 77, 77, 0.1); transform: translateY(-2px); }
+        
+        img { width: 100%; border-radius: 10px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    </style>
 </head>
-
 <body>
 
-<!-- ================= HERO ================= -->
+    <header>
+        <div class="red-title"># Event Based Project</div>
+        <h1>Multi-Platform Framework</h1>
+        <p class="hero-desc">A high-performance embedded architecture designed to decouple business logic from hardware using an advanced Event-Driven approach.</p>
+        <div style="margin-top: 20px;">
+            <span class="badge">Linux / Ubuntu</span>
+            <span class="badge">STM32F407</span>
+            <span class="badge">STM32L476</span>
+        </div>
+        <a href="https://github.com/engZafer35/Event_Based_Project" class="btn">View Source on GitHub <i class="fab fa-github"></i></a>
+    </header>
 
-<header>
-    <div class="hero container">
-        <span>Event Based Project (EBP)</span>
-        <h1>Multi-Platform Embedded Framework</h1>
-        <p>
-            EBP is a high-performance, event-driven embedded framework designed with a strict
-            Hardware Abstraction Layer (HAL).  
-            It enables the same application logic to run seamlessly across Linux systems
-            and bare-metal microcontrollers.
-        </p>
+    <div class="container">
+        
+        <div class="grid">
+            <div>
+                <div class="icon-box"><i class="fas fa-microchip"></i></div>
+                <h2 style="color: var(--secondary-teal);">Event-Driven Architecture</h2>
+                <p>The core of EBP relies on a non-blocking <b>Event Loop</b>. By abstracting hardware interrupts into a centralized event queue, the system achieves maximum stability and scalability.</p>
+                <ul class="hw-list">
+                    <li><b>Producer Isolation:</b> Add sensors by simply calling <code>EventAdd()</code>.</li>
+                    <li><b>Consumer Logic:</b> Centralized event processing prevents spaghetti code.</li>
+                    <li><b>HAL Layer:</b> Run the same code on a Linux simulator or bare-metal MCU.</li>
+                </ul>
+            </div>
+            <div>
+                <img src="https://github.com/user-attachments/assets/ea60a43f-ac03-4445-b026-b2d4adaf06e5" alt="Software Architecture">
+            </div>
+        </div>
+
+        <div class="grid" style="direction: rtl; text-align: left;">
+            <div style="direction: ltr;">
+                <div class="icon-box"><i class="fas fa-server"></i></div>
+                <h2 style="color: var(--secondary-teal);">Hardware Capabilities</h2>
+                <ul class="hw-list">
+                    <li><b>Comm:</b> Dual UART, CANBus, and I2C integration.</li>
+                    <li><b>Expansion:</b> TCA9555 GPIO & TCA8418 Keypad support.</li>
+                    <li><b>Environmental:</b> Precise LM75B Temperature tracking.</li>
+                    <li><b>Power:</b> Industrial 9-36V input regulation.</li>
+                </ul>
+            </div>
+            <div style="direction: ltr;">
+                <img src="path_to_your_hardware_image.png" alt="Hardware Units">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="text-align: center; color: var(--primary-red);">Software Core Modules</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Functionality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>BIT (Built-In Test)</b></td>
+                        <td>System health monitoring & Watchdog management.</td>
+                    </tr>
+                    <tr>
+                        <td><b>CommCan Manager</b></td>
+                        <td>CANBus protocol parsing and packet handling.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Working Mode</b></td>
+                        <td>Maintenance, Update, and Error state machine.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Logger</b></td>
+                        <td>Real-time field diagnostics and debug logging.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 80px; text-align: center;">
+            <h2>Ready to Deploy</h2>
+            <p style="color: var(--text-dim);">Open project files in <b>Eclipse</b> or <b>STM32CubeIDE</b> and click the build hammer.</p>
+            <div class="grid" style="text-align: left; margin-top: 40px;">
+                <div class="card">
+                    <h3><i class="fab fa-linux"></i> Linux Environment</h3>
+                    <p>Perfect for SIL (Software-In-the-Loop) simulations and logic testing using GCC.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-bolt"></i> STM32 Targets</h3>
+                    <p>Optimized for ARM Cortex-M4 with full peripheral support and low-power modes.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
-</header>
 
-<!-- ================= ARCHITECTURE ================= -->
-
-<section class="container">
-    <h2>Software Architecture</h2>
-
-    <p>
-        The core philosophy of EBP is the strict decoupling of
-        <b>Event Producers</b> (hardware, interrupts, drivers)
-        and <b>Event Consumers</b> (business logic).
-    </p>
-
-    <div class="card">
-        <h3>Event Loop Lifecycle</h3>
-        <ul>
-            <li><b>Initialization:</b> Peripheral validation and system startup checks</li>
-            <li><b>Event List:</b> Centralized queue collecting system events</li>
-            <li><b>Dispatcher:</b> Pops and processes events sequentially</li>
-            <li><b>Recovery:</b> Automatic restart on critical failures</li>
-        </ul>
-    </div>
-</section>
-
-<!-- ================= EXTENSIBILITY ================= -->
-
-<section class="container">
-    <h2>Extensibility Model</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Adding a Producer</h3>
-            <p>
-                New hardware inputs or sensors are added by generating
-                an event via <code>EventEkle(EVENT_TYPE)</code>.
-                No business logic changes are required.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Adding a Consumer</h3>
-            <p>
-                Business logic is implemented in centralized event handlers.
-                New functionality is added by extending the event processing switch.
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- ================= HAL ================= -->
-
-<section class="container">
-    <h2>Cross-Platform HAL</h2>
-
-    <p>
-        EBP separates hardware-dependent code behind a unified HAL layer,
-        allowing the same application logic to execute across multiple platforms.
-    </p>
-
-    <table>
-        <tr>
-            <th>Platform</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>Linux (Ubuntu)</td>
-            <td>Simulation, CI/CD, high-level testing</td>
-        </tr>
-        <tr>
-            <td>STM32F407</td>
-            <td>High-performance Cortex-M4 execution</td>
-        </tr>
-        <tr>
-            <td>STM32L476RGTX</td>
-            <td>Ultra-low-power industrial deployments</td>
-        </tr>
-    </table>
-</section>
-
-<!-- ================= HARDWARE ================= -->
-
-<section class="container">
-    <h2>Hardware Overview</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Communication</h3>
-            <p>Dual UART, CANBus, I2C</p>
-        </div>
-
-        <div class="card">
-            <h3>I/O Expansion</h3>
-            <p>TCA9555 GPIO Expander<br>TCA8418 Matrix Keypad</p>
-        </div>
-
-        <div class="card">
-            <h3>Time & Sensors</h3>
-            <p>M41T11 RTC<br>LM75B Temperature Sensor</p>
-        </div>
-
-        <div class="card">
-            <h3>Power</h3>
-            <p>9–36V industrial input<br>3.3V / 5V regulation</p>
-        </div>
-    </div>
-</section>
-
-<!-- ================= MODULES ================= -->
-
-<section class="container">
-    <h2>Software Modules</h2>
-
-    <table>
-        <tr>
-            <th>Module</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>BIT</td>
-            <td>System health monitoring and watchdog control</td>
-        </tr>
-        <tr>
-            <td>CommCan Manager</td>
-            <td>CANBus protocol parsing and routing</td>
-        </tr>
-        <tr>
-            <td>Working Mode Manager</td>
-            <td>Operational state control</td>
-        </tr>
-        <tr>
-            <td>Logger</td>
-            <td>Persistent and real-time diagnostics</td>
-        </tr>
-    </table>
-</section>
-
-<!-- ================= BUILD ================= -->
-
-<section class="container">
-    <h2>Build & Usage</h2>
-
-    <p>
-        The project includes dedicated build configurations for both
-        embedded and desktop environments.
-    </p>
-
-    <div class="card">
-        <ul>
-            <li>Linux: gcc, cmake, make</li>
-            <li>STM32: arm-none-eabi-gcc, STM32CubeIDE, Keil</li>
-            <li>Projects are built directly via Eclipse / CubeIDE</li>
-        </ul>
-    </div>
-</section>
-
-<footer>
-    Event Based Project (EBP) • Hardware-Agnostic Embedded Architecture
-</footer>
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid var(--border);">
+        EBP Framework © 2024 | Designed for High-Reliability Systems
+    </footer>
 
 </body>
 </html>
