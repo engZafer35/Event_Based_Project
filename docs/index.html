@@ -76,7 +76,7 @@
 <body>
 
     <header>
-        <div class="red-title"># Event Based Project</div>
+        <div class="red-title">Event Based Project</div>
         <h1>Multi-Platform Framework</h1>
         <p class="hero-desc">A high-performance embedded architecture designed to decouple business logic from hardware using an advanced Event-Driven approach.</p>
         <div style="margin-top: 20px;">
@@ -95,13 +95,13 @@
                 <h2 style="color: var(--secondary-teal);">Event-Driven Architecture</h2>
                 <p>The core of EBP relies on a non-blocking <b>Event Loop</b>. By abstracting hardware interrupts into a centralized event queue, the system achieves maximum stability and scalability.</p>
                 <ul class="hw-list">
-                    <li><b>Producer Isolation:</b> Add sensors by simply calling <code>EventAdd()</code>.</li>
+                    <li><b>Producer Isolation:</b> Add sensors by simply calling EventAdd().</li>
                     <li><b>Consumer Logic:</b> Centralized event processing prevents spaghetti code.</li>
                     <li><b>HAL Layer:</b> Run the same code on a Linux simulator or bare-metal MCU.</li>
                 </ul>
             </div>
             <div>
-                <img src="https://github.com/user-attachments/assets/ea60a43f-ac03-4445-b026-b2d4adaf06e5" alt="Software Architecture">
+                <img src="https://github.com/user-attachments/assets/54018ddc-bd20-4b44-8aca-6046bf76adc7" alt="Software Architecture">
             </div>
         </div>
 
@@ -117,7 +117,7 @@
                 </ul>
             </div>
             <div style="direction: ltr;">
-                <img src="path_to_your_hardware_image.png" alt="Hardware Units">
+                <img src="https://github.com/user-attachments/assets/04ab89bb-1a21-4910-93ab-d028d07fd01d" alt="Hardware Units">
             </div>
         </div>
 
@@ -141,12 +141,28 @@
                     </tr>
                     <tr>
                         <td><b>Working Mode</b></td>
-                        <td>Maintenance, Update, and Error state machine.</td>
+                        <td>Maintenance, Update, and Error working modes.</td>
                     </tr>
                     <tr>
-                        <td><b>Logger</b></td>
+                        <td><b>Debug</b></td>
                         <td>Real-time field diagnostics and debug logging.</td>
                     </tr>
+                    <tr>
+                        <td><b>Keypad-User Input</b></td>
+                        <td>Manages and handles keypad inputs</td>
+                    </tr>
+                    <tr>
+                        <td><b>Time Manager</b></td>
+                        <td>RTC time, manages and update system time</td>
+                    </tr>
+                    <tr>
+                        <td><b>Update Manager</b></td>
+                        <td>Updates system over serial port</td>
+                    </tr>
+                    <tr>
+                        <td><b>I/O Manager</b></td>
+                        <td>Manages digital I/O</td>
+                    </tr>                       
                 </tbody>
             </table>
         </div>
