@@ -83,6 +83,10 @@ The project is structured to be easily built across different IDEs and environme
 <img width="503" height="710" alt="image" src="https://github.com/user-attachments/assets/54018ddc-bd20-4b44-8aca-6046bf76adc7" />
 <img width="1510" height="675" alt="image" src="https://github.com/user-attachments/assets/04ab89bb-1a21-4910-93ab-d028d07fd01d" />
 
+<p align="center">
+  <img src=https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FhaGw3cWw3Ymx1ZTl2M2E4dTJndjN2ZGlneDdqZ25rbWo1bHliYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uahz9hecgXoJi/giphy.gif>
+</p>
+
 
 
 
